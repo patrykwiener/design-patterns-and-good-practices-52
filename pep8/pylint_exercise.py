@@ -1,46 +1,42 @@
-import timeit
+# pylint: disable=missing-module-docstring
 
-class SAMPLE_PYLINT:
 
+class SamplePylint:  # pylint: disable=missing-class-docstring, too-few-public-methods
     def __init__(self, number):
-        self._NUMBER = number
+        self._number = number
 
-    def Divide(cls, number):
+    @classmethod
+    def divide(cls, number):  # pylint: disable=missing-function-docstring
         if number == 0:
             raise ZeroDivisionError()
 
 
-class children(SAMPLE_PYLINT):
+class Children(SamplePylint):  # pylint: disable=missing-class-docstring
 
-    def __init__(self, name, PARAM, *args, **kwargs):
+    def __init__(self, name, number):
+        super().__init__(number)
         self._name = name
 
-    def some_method(self, param):
-        if param == 1:
-            return  True
-        elif param == 2:
-            return True
-        elif param        ==3:
-            return True
-        elif param ==3:
-            return True
-        elif param ==3:
-            return True
-        else:
-            return False
+    @classmethod
+    def some_method(cls, param):  # pylint: disable=missing-function-docstring
+        # if param in (1, 2, 3):
+        #     return True
+        # return False
+        return param in (1, 2, 3)
 
-    def some_method2():
+    @classmethod
+    def some_method2(cls):  # pylint: disable=missing-function-docstring
         print('bad implementation')
 
 
 if __name__ == '__main__':
-    sample = SAMPLE_PYLINT(10)
+    sample = SamplePylint(10)
     try:
-        sample.Divide(0)
-    except Exception:
+        sample.divide(0)
+    except ZeroDivisionError:
         pass
-    sample.Divide()
+    sample.divide(10)
 
-    obj = children
-    obj.some_method(4)
-
+    # obj = Children('Patryk', 11)
+    # obj.some_method(4)
+    Children.some_method(4)
