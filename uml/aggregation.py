@@ -14,3 +14,5 @@ if __name__ == "__main__":
     document = Document()
     catalog = Catalog()
     catalog.set_document(document)
+
+    del catalog

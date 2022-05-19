@@ -10,3 +10,5 @@ class System:
 
 if __name__ == '__main__':
     system = System()
+
+    del system

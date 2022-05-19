@@ -6,6 +6,15 @@ class Car(ABC):
     def get_brand(self):
         pass
 
+    # @abstractmethod
+    # def get_number_of_seats(self):
+    #     pass
+
+
+class Fiat(Car):
+    def get_brand(self):
+        return "Fiat"
+
 
 class Mercedes(Car):
     def get_brand(self):
@@ -30,8 +39,16 @@ class Kia(Car):
         return 'Kia'
 
 
+def sample(car: Car):
+    print(car.get_brand())
+
+
+mercedes = Mercedes()
+fake_fiat = 'fiat'
+sample(car=fake_fiat)
+
 if __name__ == '__main__':
-    array = [
+    array: list[Car] = [
         Mercedes(),
         Volvo(),
         Toyota(),

@@ -3,7 +3,11 @@ class Employee:
 
 
 class Company:
-    pass
+    def __init__(self, employee):
+        self.employee = employee
+
+    def produce(self, employee: Employee):
+        employee...
 
 
 if __name__ == '__main__':
