@@ -2,24 +2,24 @@ from abc import ABC, abstractmethod
 
 
 class ProductActionsInterface(ABC):
-
     @abstractmethod
     def show_reviews(self):
         pass
 
+
+class PhysicalProductActionInterface(ProductActionsInterface, ABC):
     @abstractmethod
     def find_in_outlet(self):
         pass
 
+
+class DigitalProductActionInterface(ProductActionsInterface, ABC):
     @abstractmethod
     def try_for_seven_days(self):
         pass
 
 
-class ComputerActionsUI(ProductActionsInterface):
-    def try_for_seven_days(self):  # cannot be implemented!
-        pass
-
+class ComputerActionsUI(PhysicalProductActionInterface):
     def find_in_outlet(self):
         pass
 
@@ -27,11 +27,8 @@ class ComputerActionsUI(ProductActionsInterface):
         pass
 
 
-class SoftwareActionsUI(ProductActionsInterface):
+class SoftwareActionsUI(DigitalProductActionInterface):
     def try_for_seven_days(self):
-        pass
-
-    def find_in_outlet(self):  # cannot be implemented!
         pass
 
     def show_reviews(self):

@@ -2,23 +2,33 @@ from abc import ABC, abstractmethod
 
 
 class DeliveryBase(ABC):
-
     def __init__(self, product_ids, user):
         self.product_ids = product_ids
         self.user = user
 
+
+class OfflineDelivery(DeliveryBase, ABC):
     @abstractmethod
     def get_delivery_location(self):
         pass
 
 
-class ComputerDelivery(DeliveryBase):
+class OnlineDelivery(DeliveryBase, ABC):
+    @abstractmethod
+    def get_online_address(self):
+        pass
 
+
+class ComputerDelivery(OfflineDelivery):
     def get_delivery_location(self):
         pass
 
 
-class SoftwareDelivery(DeliveryBase):
+class SmartphoneDelivery(OfflineDelivery):
+    def get_delivery_location(self):
+        pass
 
-    def get_delivery_location(self):  # cannot be implemented! It's senseless!
+
+class SoftwareDelivery(OnlineDelivery):
+    def get_online_address(self):
         pass
